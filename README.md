@@ -1,4 +1,4 @@
-# musicwizard
+# Music Wizard
 
 Calls API provided by Apple to query music artists 
 
