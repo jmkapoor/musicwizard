@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head'); %>
+</head>
+<body class="container">
+    <header class="header">
+        <%- include('../partials/header'); %>
+    </header>
+    <main>
+        <style>
+            header, main{
+               animation: fadeInAnimation ease 4s;
+               animation-iteration-count: 1;
+               animation-fill-mode: forwards;
+           }
+           @keyframes fadeInAnimation {
+               0% {
+                   opacity: 0;
+               }
+               100% {
+                   opacity: 1;
+               }
+           }
+       </style>
+        <div>
+            <form action="/process_form" method="post">
+                
+                <div class="form-group">
+                    <input type="text" id="artist" name="artist" class="form-control" placeholder="enter artist" required
+                    autofocus>
+                </div>
+                <style>
+                    .submit {
+                      display: inline-block;
+                      border-radius: 10px;
+                      background-color: plum;
+                      border: none;
+                      color: #FFFFFF;
+                      text-align: center;
+                      font-size: 24px;
+                      padding: 0%;
+                      width: 0px;
+                      transition: all 0.5s;
+                      cursor: pointer;
+                      margin: 5px;
+                    }
+                    
+                    .submit span {
+                      cursor: pointer;
+                      display: inline-block;
+                      position: relative;
+                      transition: 0.5s;
+                    }
+                    
+                    .submit span:after {
+                      content: '\00bb';
+                      position: absolute;
+                      opacity: 0;
+                      top: 0;
+                      right: -20px;
+                      transition: 0.5s;
+                    }
+                    
+                    .submit:hover span {
+                      padding-right: 25px;
+                    }
+                    
+                    .submit:hover span:after {
+                      opacity: 1;
+                      right: 0;
+                    }
+                    </style>
+                    </head>
+                    <body>
+                    
+                    <button class="submit" style="vertical-align:middle"><span>search</span></button>
+            </form>
+        </div>
+    </main>
+    <main>
+        <p></p>
+        <% if (locals.info) { %>
+            <ul>
+                <% info.forEach(function(info) { %>
+                    <li>
+                        <strong><%= info.trackName +  ' // ' + info.artistName  %></strong>
+                    </li>
+                <% }); %>
+            </ul>
+        <% } %>
+        <style>
+        ul {
+            list-style-type: none;
+            color: white;
+            font-weight: 50;
+            padding-left: 5px;
+            text-transform: lowercase;
+           }
+          </style>
+          <!-- <input id="album" type="checkbox" style="float: left;">
+                    <div style="color: whitesmoke; overflow: hidden; padding: 0px 0px 0px 10px;">
+                        Show album cover?
+                    </div> -->
+    </main>
+    <style>
+        body {
+width: 100%;
+align-items : center;
+height: 100%;
+background-position: center center;
+/* Background image doesn't tile */
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: cover;
+/*background-color: whitesmoke;*/
+overflow: hidden;
+background-image:url('https://images.unsplash.com/photo-1528645602411-bbeb0d69a6de?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80') ;
+}  
+    </style>
+    <footer>
+    </footer>
+</body>
+</html>
